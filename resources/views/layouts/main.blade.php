@@ -13,7 +13,7 @@
             integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 
-<body class="font-sans bg-gray-900 text-white">
+<body class="font-sans bg-gray-800 text-white">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ route('movies.index') }}">Paciflix</a>
@@ -21,20 +21,21 @@
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <ul class="navbar-nav flex flex-col md:flex-row items-center">
-                <li class="md:ml-16 mt-3 md:mt-0">
-                    <a href="{{ route('movies.index') }}" class="hover:text-gray-300">Movies</a>
-                </li>
-                <li class="md:ml-6 mt-3 md:mt-0">
-                    <a href="{{ route('tv.index') }}" class="hover:text-gray-300">TV Shows</a>
-                </li>
-            </ul>
-            <div class="flex flex-col md:flex-row items-center">
-                <livewire:search-dropdown>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav flex flex-col md:flex-row items-center">
+                    <li class="nav-item md:ml-16 mt-3 md:mt-0">
+                        <a href="{{ route('movies.index') }}" class="hover:text-gray-300">Movies</a>
+                    </li>
+                    <li class="nav-item md:ml-6 mt-3 md:mt-0">
+                        <a href="{{ route('tv.index') }}" class="hover:text-gray-300">TV Shows</a>
+                    </li>
+                </ul>
 
+                <div class="nav-item flex flex-col md:flex-row items-center">
+                    <livewire:search-dropdown>
+
+                </div>
             </div>
-            </ul>
-        </div>
         </div>
     </nav>
     @yield('content')

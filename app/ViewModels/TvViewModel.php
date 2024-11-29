@@ -37,19 +37,28 @@ class TvViewModel extends ViewModel
 
     private function formatTv($tv)
     {
-        return collect($tv)->map(function($tvshow) {
-            $genresFormatted = collect($tvshow['genre_ids'])->mapWithKeys(function($value) {
+        return collect($tv)->map(function ($tvshow) {
+            $genresFormatted = collect($tvshow['genre_ids'])->mapWithKeys(function ($value) {
                 return [$value => $this->genres()->get($value)];
             })->implode(', ');
 
             return collect($tvshow)->merge([
-                'poster_path' => 'https://image.tmdb.org/t/p/w500/'.$tvshow['poster_path'],
-                'vote_average' => $tvshow['vote_average'] * 10 .'%',
-                'first_air_date' => Carbon::parse($tvshow['first_air_date'])->format('M d, Y'),
+                'poster_path' => 'https://image.tmdb.org/t/p/w500/' . $tvshow['poster_path'],
+                'backdrop_path' => 'https://image.tmdb.org/t/p/w1280/' . $tvshow['backdrop_path'],
+                'vote_average' => $tvshow['vote_average'] * 10 . '%',
+                'first_air_date' => Carbon::parse($tvshow['first_air_date'])->format('Y'),
                 'genres' => $genresFormatted,
             ])->only([
-                'poster_path', 'id', 'genre_ids', 'name', 'vote_average', 'overview', 'first_air_date', 'genres',
-            ]);
+                        'poster_path',
+                        'backdrop_path',
+                        'id',
+                        'genre_ids',
+                        'name',
+                        'vote_average',
+                        'overview',
+                        'first_air_date',
+                        'genres',
+                    ]);
         });
     }
 }

@@ -6,50 +6,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Paciflix</title>
 
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/main.css">
-    <livewire:styles>
-        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <livewire:styles />
 </head>
 
-<body class="font-sans bg-gray-800 text-white">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{{ route('movies.index') }}">Paciflix</a>
+<body class="bg-dark text-white">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold ms-4" href="{{ route('movies.index') }}">
+                <img src="{{ asset('logo.png') }}" alt="Paciflix Logo" class="d-inline-block align-text-top"
+                    height="100" width="100">
+            </a>
+
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav flex flex-col md:flex-row items-center">
-                    <li class="nav-item md:ml-16 mt-3 md:mt-0">
-                        <a href="{{ route('movies.index') }}" class="hover:text-gray-300">Movies</a>
+                <ul class="navbar-nav ms-auto mb-2 mt-2 mb-lg-0 me-4  align-items-center">
+
+                    <li class="nav-item">
+                        <a href="{{ route('movies.index') }}" class="nav-link fw-bold" style="color: #08bffb">Movies</a>
                     </li>
-                    <li class="nav-item md:ml-6 mt-3 md:mt-0">
-                        <a href="{{ route('tv.index') }}" class="hover:text-gray-300">TV Shows</a>
+                    <li class="nav-item">
+                        <a href="{{ route('tv.index') }}" class="nav-link fw-bold" style="color: #08bffb">TV Shows</a>
+                    </li>
+                    <li class="nav-item align-items-center mb-3">
+
+                        <livewire:search-dropdown />
+
                     </li>
                 </ul>
-
-                <div class="nav-item flex flex-col md:flex-row items-center">
-                    <livewire:search-dropdown>
-
-                </div>
             </div>
         </div>
     </nav>
-    @yield('content')
-    <footer class="border border-t border-gray-800">
-        <div class="container mx-auto text-sm px-4 py-6">
-            Powered by <a href="https://www.themoviedb.org/documentation/api" class="underline hover:text-gray-300">TMDb
-                API</a>
+
+    <main class="container py-4 bg-gray">
+        @yield('content')
+    </main>
+
+    <footer class="bg-dark text-white mt-auto py-4">
+        <div class="container text-center">
+            <div class="text-muted">
+                Made with ❤️ by <a href="https://darwinrg.tech" class="text-decoration-none text-white">DarwinRG</a>
+            </div>
         </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-    <livewire:scripts>
-        @yield('scripts')
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <livewire:scripts />
+    @yield('scripts')
 </body>
 
 </html>

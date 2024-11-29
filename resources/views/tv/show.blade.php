@@ -1,77 +1,64 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="tv-info border-b border-gray-800">
-    <div class="container mx-auto px-4 py-16 flex flex-col md:flex-row">
-        <div class="flex-none">
-            <img src="{{ $tvshow['poster_path'] }}" alt="parasite" class="w-64 lg:w-96">
+<div class="container my-5 ">
+    <div class="ratio ratio-16x9 mb-4">
+        <iframe src="https://multiembed.mov/?video_id={{ $tvshow['id'] }}&tmdb=1&s=1&e=1"
+            allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <img src="{{ $tvshow['poster_path'] }}" alt="poster" class="img-fluid rounded">
         </div>
-        <div class="md:ml-24">
-            <h2 class="text-4xl mt-4 md:mt-0 font-semibold">{{ $tvshow['name'] }}</h2>
-            <div class="flex flex-wrap items-center text-gray-400 text-sm">
-                <svg class="fill-current text-orange-500 w-4" viewBox="0 0 24 24">
+        <div class="col-md-8">
+            <h2 class="display-4 font-semibold">{{ $tvshow['name'] }}</h2>
+            <div class="d-flex align-items-center text-muted mb-3">
+                <svg class="w-4" viewBox="0 0 24 24" fill="cyan">
                     <g data-name="Layer 2">
                         <path
                             d="M17.56 21a1 1 0 01-.46-.11L12 18.22l-5.1 2.67a1 1 0 01-1.45-1.06l1-5.63-4.12-4a1 1 0 01-.25-1 1 1 0 01.81-.68l5.7-.83 2.51-5.13a1 1 0 011.8 0l2.54 5.12 5.7.83a1 1 0 01.81.68 1 1 0 01-.25 1l-4.12 4 1 5.63a1 1 0 01-.4 1 1 1 0 01-.62.18z"
                             data-name="star" />
                     </g>
                 </svg>
-                <span class="ml-1">{{ $tvshow['vote_average'] }}</span>
+                <span>{{ $tvshow['vote_average'] }}</span>
                 <span class="mx-2">|</span>
                 <span>{{ $tvshow['first_air_date'] }}</span>
                 <span class="mx-2">|</span>
                 <span>{{ $tvshow['genres'] }}</span>
             </div>
 
-            <p class="text-gray-300 mt-8">
+            <p class="text-light">
                 {{ $tvshow['overview'] }}
             </p>
 
-            <div class="mt-12">
-                <div class="flex mt-4">
+            <div class="mt-4">
+                <h4 class="text-2xl font-semibold text-white">Featured Crew</h4>
+                <div class="row mt-2">
                     @foreach ($tvshow['created_by'] as $crew)
-                        <div class="mr-8">
-                            <div>{{ $crew['name'] }}</div>
-                            <div class="text-sm text-gray-400">Creator</div>
+                        <div class="col-md-4 mb-2">
+                            <div class="text-light">{{ $crew['name'] }}</div>
+                            <div class="text-muted">Creator</div>
                         </div>
-
                     @endforeach
-                </div>
-            </div>
-
-            <div class="modal-body px-8 py-8">
-                <div class="responsive-container overflow-hidden relative" style="padding-top: 56.25%">
-                    <iframe class="responsive-iframe absolute top-0 left-0 w-full h-full"
-                        src="https://multiembed.mov/?video_id={{$tvshow['id'] }}&tmdb=1&s=1&e=1" style="border:0;"
-                        allow="autoplay; encrypted-media" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
     </div>
-</div> <!-- end tv-info -->
 
-<div class="tv-cast border-b border-gray-800">
-    <div class="container mx-auto px-4 py-16">
-        <h2 class="text-4xl font-semibold">Cast</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+    <div class="mt-5">
+        <h2 class="text-4xl font-semibold text-white">Cast</h2>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-4">
             @foreach ($tvshow['cast'] as $cast)
-                <div class="mt-8">
-                    <a href="{{ route('actors.show', $cast['id']) }}">
-                        <img src="{{ $cast['profile_path'] }}" alt="actor1"
-                            class="hover:opacity-75 transition ease-in-out duration-150">
-                    </a>
+                <div class="col">
+                    <img src="{{ $cast['profile_path'] }}" alt="actor1" class="img-fluid rounded hover-opacity">
                     <div class="mt-2">
-                        <a href="{{ route('actors.show', $cast['id']) }}"
-                            class="text-lg mt-2 hover:text-gray:300">{{ $cast['name'] }}</a>
-                        <div class="text-sm text-gray-400">
-                            {{ $cast['character'] }}
-                        </div>
+                        <span class="text-light">{{ $cast['name'] }}</span>
+                        <div class="text-muted">{{ $cast['character'] }}</div>
                     </div>
                 </div>
             @endforeach
         </div>
     </div>
-</div> <!-- end tv-cast -->
-
-
+</div>
 @endsection

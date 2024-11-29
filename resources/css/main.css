@@ -7,3 +7,19 @@
 .spinner {
     position: absolute;
 }
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .navbar-nav {
+        padding: 1rem 0;
+    }
+}
+

@@ -2,10 +2,11 @@
     <input
         wire:model.debounce.500ms="search"
         type="text"
-        class="bg-gray-800 text-sm rounded-full w-64 px-4 pl-8 py-1 focus:outline-none focus:shadow-outline" placeholder="Search (Press '/' to focus)"
+        class="form-control bg-gray-800 text-sm rounded-full w-full md:w-64 px-4 pl-8 py-1 focus:outline-none focus:shadow-outline"
+        placeholder="Search (Press 'Enter' to search)"
         x-ref="search"
         @keydown.window="
-            if (event.keyCode === 191) {
+            if (event.keyCode === 13) {
                 event.preventDefault();
                 $refs.search.focus();
             }
@@ -23,7 +24,7 @@
 
     @if (strlen($search) >= 2)
         <div
-            class="z-50 absolute bg-gray-800 text-sm rounded w-64 mt-4"
+            class="z-50 absolute bg-gray-800 text-sm rounded w-full md:w-64 mt-4"
             x-show.transition.opacity="isOpen"
         >
             @if ($searchResults->count() > 0)

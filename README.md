@@ -73,8 +73,7 @@ cd Paciflix
 
 ### ⚙️ Initial Setup
 
-1. Install Composer Packages
-   Open a terminal and navigate to the project directory. Then run the following command to install the composer packages:
+1. Open a terminal and navigate to the project directory. Then run the following command to install the composer packages:
 
 ```sh
 composer install
@@ -98,9 +97,9 @@ php artisan key:generate
 
 To run this project, you will need to configure the following variables to the **.env**
 
-| Variable Name            | Value            |
-| ------------------------ | ---------------- | 
-| TMDB_TOKEN               |                  | 
+```sh
+TMDB_TOKEN=
+```
 
 You need to get your TMDB Token at https://www.themoviedb.org/
 

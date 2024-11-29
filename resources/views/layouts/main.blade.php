@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Paciflix</title>
+    <title>Paciflix | 🌊Your ocean of entertainment🍿</title>
     
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('logo.png') }}" type="image/png">
@@ -22,7 +22,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
             <a class="navbar-brand fw-bold ms-4" href="{{ route('movies.index') }}">
-                <img src="{{ asset('logo.png') }}" alt="Paciflix Logo" class="d-inline-block align-text-top"
+                <img src="{{ asset('logo.png') }}" alt="Paciflix" class="d-inline-block align-text-top"
                     height="100" width="100">
             </a>
 
@@ -50,15 +50,18 @@
         </div>
     </nav>
 
-    <main class="container py-4 bg-gray">
+    <main class="container py-2 bg-dark">
         @yield('content')
     </main>
 
     <footer class="bg-dark text-white mt-auto py-4">
         <div class="container text-center">
-            <div class="text-muted">
-                Made with ❤️ by <a href="https://darwinrg.tech" class="text-decoration-none text-white">DarwinRG</a>
+            <div class="fw-bold">
+                Made with ❤️ by <a href="https://darwinrg.tech" class="text-decoration-none" style="color: #08bffb">DarwinRG</a>
             </div>
+            <span></span>
+            <span class="text-muted">© 2024 Paciflix. All rights reserved.</span>
+            <div class="fw-light">Disclaimer: This site does not store any files on its server. All contents are provided by non-affiliated third parties.</div>
         </div>
     </footer>
 

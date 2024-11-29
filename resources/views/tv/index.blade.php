@@ -35,7 +35,7 @@
     </div>
 
     <div class="popular-tv mt-8">
-        <h2 class="uppercase tracking-wider text-lg font-semibold" style="color: #08bffb">🔥Trending Shows</h2>
+        <h2 class="uppercase tracking-wider text-lg font-bolder" style="color: #08bffb">🔥Trending Shows</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
             @foreach ($popularTv as $tvshow)
                 <x-tv-card :tvshow="$tvshow" />
@@ -44,7 +44,7 @@
     </div> <!-- end popular-tv -->
 
     <div class="top-rated-shows py-24">
-        <h2 class="uppercase tracking-wider text-lg font-semibold" style="color: #08bffb">✨Top Rated Shows</h2>
+        <h2 class="uppercase tracking-wider text-lg font-bolder" style="color: #08bffb">✨Top Rated Shows</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
             @foreach ($topRatedTv as $tvshow)
                 <x-tv-card :tvshow="$tvshow" />

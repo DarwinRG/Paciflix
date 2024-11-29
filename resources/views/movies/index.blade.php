@@ -35,7 +35,7 @@
         <h1 class="text-3xl font-bold text-cyan my-4">🌊YOUR OCEAN OF ENTERTAINMENT🍿</h1>
     </div>
     <div class="popular-movies mt-8">
-        <h2 class="uppercase tracking-wider text-lg font-semibold" style="color: #08bffb">🔥Trending Movies</h2>
+        <h2 class="uppercase tracking-wider text-lg font-bolder" style="color: #08bffb">🔥Trending Movies</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
             @foreach ($popularMovies as $movie)
                 <x-movie-card :movie="$movie" />
@@ -44,7 +44,7 @@
     </div> <!-- end popular-movies -->
 
     <div class="now-playing-movies py-24">
-        <h2 class="uppercase tracking-wider text-lg font-semibold" style="color: #08bffb">✨New Movies</h2>
+        <h2 class="uppercase tracking-wider text-lg font-bolder" style="color: #08bffb">✨New Movies</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
             @foreach ($nowPlayingMovies as $movie)
                 <x-movie-card :movie="$movie" />

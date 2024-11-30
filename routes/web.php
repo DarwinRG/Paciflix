@@ -30,4 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/actors', 'ActorsController@index')->name('actors.index');
     Route::get('/actors/{id}', 'ActorsController@show')->name('actors.show');
     Route::get('/actors/page/{page?}', 'ActorsController@index');
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
+    Route::post('/profile/destroy', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });

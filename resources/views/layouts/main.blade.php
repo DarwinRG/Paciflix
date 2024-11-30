@@ -19,7 +19,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/main.css">
-
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <livewire:styles />
@@ -47,13 +48,27 @@
                     <li class="nav-item mb-3 col-12 col-md-auto">
                         <livewire:search-dropdown />
                     </li>
-                    <li class="nav-item col-12 col-md-auto">
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-                            <button type="submit" class="nav-link fw-bold btn btn-link"
-                                style="color: #08bffb; display: block;">Logout</button>
-                        </form>
+                    <li class="nav-item dropdown col-12 col-md-auto">
+                        <a class="nav-link" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="bi bi-person-circle" style="font-size: 1.5rem; color: #08bffb;"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end custom-dropdown" aria-labelledby="userDropdown">
+                            <li class="dropdown-item-text text-success">Hello there! 👋</li>
+                            <li class="dropdown-item-text">{{ Auth::user()->name }}</li>
+                            <li class="">
+                                <a href="{{ route('profile.edit') }}" class="dropdown-item">Profile Settings</a>
+                            </li>
+                            <li>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item" style="color: red">Logout</button>
+                                </form>
+                            </li>
+                        </ul>
                     </li>
+                </ul>
+                </li>
                 </ul>
             </div>
         </div>

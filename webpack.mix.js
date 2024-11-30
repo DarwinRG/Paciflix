@@ -1,18 +1,16 @@
 const mix = require('laravel-mix');
-require('laravel-mix-purgecss');
-
-/*
- |--------------------------------------------------------------------------
- | Mix Asset Management
- |--------------------------------------------------------------------------
- |
- | Mix provides a clean, fluent API for defining some Webpack build steps
- | for your Laravel application. By default, we are compiling the Sass
- | file for the application as well as bundling up all the JS files.
- |
- */
+const tailwindcss = require('tailwindcss');
+const purgecss = require('@fullhuman/postcss-purgecss')({
+    content: [
+        './resources/views/**/*.blade.php',
+        './resources/js/**/*.vue',
+        './resources/js/**/*.js',
+    ],
+    defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
+});
 
 mix.postCss('resources/css/main.css', 'public/css', [
-    require('tailwindcss'),
-])
-.purgeCss();
+    require('postcss-import'),
+    tailwindcss('./tailwind.config.js'),
+    ...process.env.NODE_ENV === 'production' ? [purgecss] : []
+]);

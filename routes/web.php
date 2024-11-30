@@ -1,14 +1,33 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', 'MoviesController@index')->name('movies.index');
-Route::get('/movies/{id}', 'MoviesController@show')->name('movies.show');
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
 
-Route::get('/tv', 'TvController@index')->name('tv.index');
-Route::get('/tv/{id}', 'TvController@show')->name('tv.show');
+Route::get('/', function () {
+    return redirect('/movies');
+})->name('home');
 
-Route::get('/actors', 'ActorsController@index')->name('actors.index');
-Route::get('/actors/page/{page?}', 'ActorsController@index');
+// Auth routes
+require __DIR__.'/auth.php';
 
-Route::get('/actors/{id}', 'ActorsController@show')->name('actors.show');
+// Protected routes
+Route::middleware('auth')->group(function () {
+    Route::get('/movies', 'MoviesController@index')->name('movies.index');
+    Route::get('/movies/{id}', 'MoviesController@show')->name('movies.show');
+    Route::get('/tv', 'TvController@index')->name('tv.index');
+    Route::get('/tv/{id}', 'TvController@show')->name('tv.show');
+    Route::get('/actors', 'ActorsController@index')->name('actors.index');
+    Route::get('/actors/{id}', 'ActorsController@show')->name('actors.show');
+    Route::get('/actors/page/{page?}', 'ActorsController@index');
+});

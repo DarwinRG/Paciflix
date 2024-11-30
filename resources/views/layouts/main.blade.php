@@ -53,11 +53,11 @@
                             aria-expanded="false">
                             <i class="bi bi-person-circle" style="font-size: 1.5rem; color: #08bffb;"></i>
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-end custom-dropdown" aria-labelledby="userDropdown">
+                        <ul class="dropdown-menu dropdown-menu-lg-end bg-gray-600" aria-labelledby="userDropdown">
                             <li class="dropdown-item-text text-success">Hello there! 👋</li>
-                            <li class="dropdown-item-text">{{ Auth::user()->name }}</li>
+                            <li class="dropdown-item-text disabled">{{ Auth::user()->name }}</li>
                             <li class="">
-                                <a href="{{ route('profile.edit') }}" class="dropdown-item">Profile Settings</a>
+                                <a href="{{ route('profile.edit') }}" class="dropdown-item text-primary">Profile Settings</a>
                             </li>
                             <li>
                                 <form method="POST" action="{{ route('logout') }}">

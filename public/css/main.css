@@ -732,7 +732,3 @@ img {
     grid-template-columns: repeat(5, minmax(0, 1fr))
   }
 }
-
-.custom-dropdown {
-  left: -50%; /* Adjust this value as needed */
-}

@@ -8,12 +8,12 @@
     </div>
 
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 text-white">
             <img src="{{ $tvshow['poster_path'] }}" alt="poster" class="img-fluid rounded">
         </div>
         <div class="col-md-8">
             <h2 class="display-4 font-semibold">{{ $tvshow['name'] }}</h2>
-            <div class="d-flex align-items-center text-muted mb-3">
+            <div class="d-flex align-items-center mb-3">
                 <svg class="w-4" viewBox="0 0 24 24" fill="cyan">
                     <g data-name="Layer 2">
                         <path

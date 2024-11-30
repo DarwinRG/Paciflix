@@ -10,7 +10,8 @@
     <link rel="icon" href="{{ asset('logo.png') }}" type="image/png">
 
     <!-- CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/main.css">
 
     <!-- Scripts -->
@@ -22,26 +23,29 @@
     <nav class="navbar navbar-dark bg-dark sticky-top navbar-expand-lg">
         <div class="container">
             <a class="fw-bold ms-4" href="{{ route('movies.index') }}">
-                <img src="{{ asset('logo.png') }}" alt="Paciflix" class="d-inline-block align-text-top" height="100" width="100">
+                <img src="{{ asset('logo.png') }}" alt="Paciflix" class="d-inline-block align-text-top" height="100"
+                    width="100">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarOne" aria-controls="#navbarOne" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarOne"
+                aria-controls="#navbarOne" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarOne">
-                <ul class="navbar-nav ms-auto mb-2 mt-2 mb-lg-0 me-4 align-items-center">
-                    <li class="nav-item">
+                <ul class="nav nav-pills ms-auto mb-2 mt-2 mb-lg-0 me-4 align-items-center">
+                    <li class="nav-item col-12 col-md-auto align-items-center">
                         <a href="{{ route('movies.index') }}" class="nav-link fw-bold" style="color: #08bffb">Movies</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item col-12 col-md-auto">
                         <a href="{{ route('tv.index') }}" class="nav-link fw-bold" style="color: #08bffb">TV Shows</a>
                     </li>
-                    <li class="nav-item mb-3">
+                    <li class="nav-item mb-3 col-12 col-md-auto">
                         <livewire:search-dropdown />
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item col-12 col-md-auto">
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-                            <button type="submit" class="nav-link fw-bold btn btn-link" style="color: #08bffb; display: block;">Logout</button>
+                            <button type="submit" class="nav-link fw-bold btn btn-link"
+                                style="color: #08bffb; display: block;">Logout</button>
                         </form>
                     </li>
                 </ul>
@@ -56,16 +60,20 @@
     <footer class="bg-dark text-white mt-auto py-4">
         <div class="container text-center">
             <div class="fw-bold">
-                Made with ❤️ by <a href="https://darwinrg.tech" class="text-decoration-none" style="color: #08bffb">DarwinRG</a>
+                Made with ❤️ by <a href="https://darwinrg.tech" class="text-decoration-none"
+                    style="color: #08bffb">DarwinRG</a>
             </div>
             <span></span>
             <span class="text-muted">© 2024 Paciflix. All rights reserved.</span>
-            <div class="fw-light">Disclaimer: This site does not store any files on its server. All contents are provided by non-affiliated third parties.</div>
+            <div class="fw-light">Disclaimer: This site does not store any files on its server. All contents are
+                provided by non-affiliated third parties.</div>
         </div>
     </footer>
 
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
     <livewire:scripts />
     @yield('scripts')
 </body>

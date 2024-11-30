@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-<div class="container my-5 ">
+<div class="container">
     <div class="ratio ratio-16x9 mb-4">
         <iframe src="https://multiembed.mov/?video_id={{ $tvshow['id'] }}&tmdb=1&s=1&e=1"
             allow="autoplay; encrypted-media" allowfullscreen></iframe>

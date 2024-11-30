@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,18 +14,54 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <style>
+        .background-tint {
+            position: relative;
+            z-index: 1;
+        }
+
+        .background-tint::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            /* Adjust the opacity as needed */
+            z-index: -1;
+        }
+    </style>
 </head>
+
 <body class="font-sans text-gray-900 antialiased">
-    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
+    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 background-tint"
+        style="background-image: url('{{ asset('background2.jpg') }}'); background-size: cover; background-position: center;">
         <div>
             <a href="/">
                 <img src="{{ asset('logo.png') }}" alt="Paciflix" class="w-40 mx-auto" />
             </a>
         </div>
 
-        <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white dark:bg-gray-800 shadow-md overflow-hidden sm:rounded-lg">
+        <div
+            class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white dark:bg-gray-800 shadow-md overflow-hidden sm:rounded-lg">
             {{ $slot }}
         </div>
+        <footer class="bg-dark text-white mt-auto py-4 px-4">
+            <div class="container text-center">
+                <div class="fw-bold">
+                    Made with ❤️ by <a href="https://darwinrg.tech" class="text-decoration-none"
+                        style="color: #08bffb">DarwinRG</a>
+                </div>
+                <span></span>
+                <span class="text-muted">© 2024 Paciflix. All rights reserved.</span>
+                <div class="fw-light">Disclaimer: This site does not store any files on its server. All contents are
+                    provided by non-affiliated third parties.</div>
+            </div>
+        </footer>
     </div>
 </body>
+
+
+
 </html>

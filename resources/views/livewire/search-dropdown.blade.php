@@ -2,7 +2,7 @@
     <input
         wire:model.debounce.500ms="search"
         type="text"
-        class="form-control bg-gray-800 text-sm rounded-full w-full md:w-64 px-4 pl-8 py-1 focus:outline-none focus:shadow-outline"
+        class="form-control bg-gray-400 text-sm rounded-full w-full md:w-64 px-4 pl-8 py-1 focus:outline-none focus:shadow-outline"
         placeholder="Search (Press 'Enter' to search)"
         x-ref="search"
         @keydown.window="
@@ -22,11 +22,11 @@
 
     <div wire:loading class="spinner top-0 right-0 mr-4 mt-3"></div>
 
-    @if (strlen($search) >= 2)
-        <div
-            class="z-50 absolute bg-gray-800 text-sm rounded w-full md:w-64 mt-4"
-            x-show.transition.opacity="isOpen"
-        >
+    <div
+        class="z-50 absolute bg-gray-800 text-sm rounded w-full md:w-64 mt-4"
+        x-show.transition.opacity="isOpen && search.length >= 2"
+    >
+        @if (strlen($search) >= 2)
             @if ($searchResults->count() > 0)
                 <ul>
                     @foreach ($searchResults as $result)
@@ -44,11 +44,10 @@
                         </a>
                         </li>
                     @endforeach
-
                 </ul>
             @else
                 <div class="px-3 py-3">No results for "{{ $search }}"</div>
             @endif
-        </div>
-    @endif
+        @endif
+    </div>
 </div>

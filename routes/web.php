@@ -32,5 +32,5 @@ Route::middleware('auth')->group(function () {
     Route::get('/actors/page/{page?}', 'ActorsController@index');
     Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
-    Route::post('/profile/destroy', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });

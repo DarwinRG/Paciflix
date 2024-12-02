@@ -91,17 +91,35 @@ cp .env.example .env
 php artisan key:generate
 ```
 
+4. Install frontend dependencies using npm
+
+```sh
+npm install
+```
+
 &nbsp;
 
 ## 🔧 Environment Variables
 
 To run this project, you will need to configure the following variables to the **.env**
 
+### TMDB API TOKEN
 ```sh
 TMDB_TOKEN=
 ```
-
 You need to get your TMDB Token at https://www.themoviedb.org/
+
+
+### DATABASE CONFIGS
+```sh
+DB_CONNECTION=
+DB_HOST=
+DB_PORT=
+DB_DATABASE=
+DB_USERNAME=
+DB_PASSWORD=
+```
+
 
 &nbsp;
 
@@ -112,7 +130,11 @@ After setting up the environment and installing the dependencies, you can run th
 ```sh
 php artisan serve
 ```
+Then create a new terminal and create a new node development server
 
+```sh
+npm run dev
+```
 &nbsp;
 
 ## 📊 Output
@@ -125,13 +147,16 @@ Starting Laravel development server: http://127.0.0.1:8000
 
 You can now visit http://127.0.0.1:8000 to view the application.
 
-### 📈 Screenshot
+## 📈 Screenshots
 
-Homepage
+### Login Page
+![Screenshot](public/ss_login.jpeg)
+
+### Homepage
 ![Screenshot](public/ss_home.jpeg)
 
 
-Player
+### Player
 ![Screenshot](public/ss_player.jpeg)
 
 &nbsp;

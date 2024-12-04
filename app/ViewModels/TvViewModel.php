@@ -43,8 +43,8 @@ class TvViewModel extends ViewModel
             })->implode(', ');
 
             return collect($tvshow)->merge([
-                'poster_path' => 'https://image.tmdb.org/t/p/w500/' . $tvshow['poster_path'],
-                'backdrop_path' => 'https://image.tmdb.org/t/p/w1280/' . $tvshow['backdrop_path'],
+                'poster_path' => 'https://image.tmdb.org/t/p/w780/' . $tvshow['poster_path'],
+                'backdrop_path' => 'https://image.tmdb.org/t/p/original/' . $tvshow['backdrop_path'],
                 'vote_average' => $tvshow['vote_average'] * 10 . '%',
                 'first_air_date' => Carbon::parse($tvshow['first_air_date'])->format('Y'),
                 'genres' => $genresFormatted,

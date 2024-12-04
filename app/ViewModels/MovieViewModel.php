@@ -18,8 +18,8 @@ class MovieViewModel extends ViewModel
     {
         return collect($this->movie)->merge([
             'poster_path' => $this->movie['poster_path']
-                ? 'https://image.tmdb.org/t/p/w500/' . $this->movie['poster_path']
-                : 'https://via.placeholder.com/500x750',
+                ? 'https://image.tmdb.org/t/p/w780/' . $this->movie['poster_path']
+                : null,
             'vote_average' => $this->movie['vote_average'] * 10 . '%',
             'release_date' => Carbon::parse($this->movie['release_date'])->format('M Y'),
             'genres' => collect($this->movie['genres'])->pluck('name')->flatten()->implode(', '),
@@ -27,8 +27,8 @@ class MovieViewModel extends ViewModel
             'cast' => collect($this->movie['credits']['cast'])->take(5)->map(function ($cast) {
                 return collect($cast)->merge([
                     'profile_path' => $cast['profile_path']
-                        ? 'https://image.tmdb.org/t/p/w300' . $cast['profile_path']
-                        : 'https://via.placeholder.com/300x450',
+                        ? 'https://image.tmdb.org/t/p/w500' . $cast['profile_path']
+                        : null,
                 ]);
             }),
             'images' => collect($this->movie['images']['backdrops'])->take(9),

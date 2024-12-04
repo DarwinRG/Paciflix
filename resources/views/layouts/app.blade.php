@@ -5,6 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Paciflix | 🌊Your ocean of entertainment🍿" />
+    <meta property="og:description" content="Enjoy a vast collection of movies and TV shows on Paciflix." />
+    <meta property="og:image" content="{{ asset('ss_details.png') }}" />
+    <meta property="og:url" content="{{ url()->current() }}" />
+    <meta property="og:type" content="website" />
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 

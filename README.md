@@ -166,6 +166,8 @@ You can now visit http://127.0.0.1:8000 to view the application.
 ### Homepage
 ![Screenshot](public/ss_home.jpeg)
 
+### Homepage
+![Screenshot](public/ss_tvshow.jpeg)
 
 ### Player
 ![Screenshot](public/ss_player.jpeg)

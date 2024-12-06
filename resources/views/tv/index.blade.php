@@ -11,7 +11,7 @@
                             <img src="{{ $tvshow['backdrop_path'] }}" class="d-block w-100" alt="{{ $tvshow['name'] }}"
                                 style="aspect-ratio: 21/9; object-fit: cover;">
                         </a>
-                        <div class="carousel-caption d-none d-md-block rounded bg-dark">
+                        <div class="carousel-caption d-none d-md-block rounded bg-dark bg-opacity-50">
                             <h5 style="color: #08bffb">{{ $tvshow['name'] }}</h5>
                             <p>{{ $tvshow['overview'] }}</p>
                         </div>
@@ -31,11 +31,11 @@
         </div>
     </div>
     <div class="text-center mb-8">
-        <h1 class="text-3xl font-bold text-cyan mt-4">🌊YOUR OCEAN OF ENTERTAINMENT🍿</h1>
+        <h1 class="text-3xl text-cyan mt-4 fw-bold">YOUR OCEAN OF ENTERTAINMENT</h1>
     </div>
 
     <div class="popular-tv mt-8">
-        <h2 class="uppercase tracking-wider text-lg font-bolder" style="color: #08bffb">🔥Trending Shows</h2>
+        <h2 class="uppercase tracking-wider text-lg fw-bold" style="color: #08bffb">🔥Trending Shows</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
             @foreach ($popularTv as $tvshow)
                 <x-tv-card :tvshow="$tvshow" />
@@ -44,7 +44,7 @@
     </div> <!-- end popular-tv -->
 
     <div class="top-rated-shows py-24">
-        <h2 class="uppercase tracking-wider text-lg font-bolder" style="color: #08bffb">✨Top Rated Shows</h2>
+        <h2 class="uppercase tracking-wider text-lg fw-bold" style="color: #08bffb">✨Top Rated Shows</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
             @foreach ($topRatedTv as $tvshow)
                 <x-tv-card :tvshow="$tvshow" />

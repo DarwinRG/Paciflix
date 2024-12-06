@@ -44,7 +44,7 @@
 
 <body class="font-sans text-gray-900 antialiased">
     <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 background-tint"
-        style="background-image: url('{{ asset('background2.jpg') }}'); background-size: cover; background-position: center;">
+        style="background-image: url('{{ asset('poster-background.jpg') }}'); background-size: cover; background-position: center;">
         <div>
             <a href="/">
                 <img src="{{ asset('logo.png') }}" alt="Paciflix" class="w-40 mx-auto" />
@@ -55,15 +55,15 @@
             class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white dark:bg-gray-800 shadow-md overflow-hidden sm:rounded-lg">
             {{ $slot }}
         </div>
-        <footer class="bg-dark text-white mt-auto py-4 px-4">
-            <div class="container text-center">
-                <div class="fw-bold">
-                    Made with ❤️ by <a href="https://darwinrg.tech" class="text-decoration-none"
-                        style="color: #08bffb">DarwinRG</a>
+        <footer class="text-white mt-auto mb-4 px-4">
+            <div class="container mx-auto text-center">
+                <div class="font-bold">
+                    Made with ❤️ by <a href="https://darwinrg.tech"
+                        class="text-decoration-none text-blue-400">DarwinRG</a>
                 </div>
                 <span></span>
-                <span class="text-muted">© 2024 Paciflix. All rights reserved.</span>
-                <div class="fw-light">Disclaimer: This site does not store any files on its server. All contents are
+                <span class="text-blue-500">© 2024 Paciflix. All rights reserved.</span>
+                <div class="font-light">Disclaimer: This site does not store any files on its server. All contents are
                     provided by non-affiliated third parties.</div>
             </div>
         </footer>

@@ -1,4 +1,4 @@
-<div class="mt-8 border border-gray-700 rounded-lg p-4">
+<div class="mt-8 rounded-lg p-4 bg-gray-800 shadow">
     <a href="{{ route('movies.show', $movie['id']) }}">
         <img src="{{ $movie['poster_path'] }}" alt="poster"
             class="hover:opacity-75 transition ease-in-out duration-150 rounded">

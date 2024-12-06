@@ -3,7 +3,7 @@
         wire:model.debounce.500ms="search"
         type="text"
         class="form-control bg-gray-400 text-sm rounded-full w-full md:w-64 px-4 pl-8 py-1 focus:outline-none focus:shadow-outline"
-        placeholder="Search (Press 'Enter' to search)"
+        placeholder="(Press 'Enter' to search)"
         x-ref="search"
         @keydown.window="
             if (event.keyCode === 13) {
@@ -40,7 +40,7 @@
                             @else
                                 <img src="https://via.placeholder.com/50x75" alt="poster" class="w-8">
                             @endif
-                            <span class="ml-4">{{ $result['title'] }}</span>
+                            <span class="ml-4">{{ $result['title'] ?? $result['name'] }}</span>
                         </a>
                         </li>
                     @endforeach

@@ -732,3 +732,9 @@ img {
     grid-template-columns: repeat(5, minmax(0, 1fr))
   }
 }
+
+@media (min-width: 992px) {
+  .w-lg-50 {
+      width: 50%;
+  }
+}

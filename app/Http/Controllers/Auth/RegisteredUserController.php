@@ -12,6 +12,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use App\Otp;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
+use App\Mail\OtpMail;
 
 class RegisteredUserController extends Controller
 {
@@ -32,20 +36,30 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        $user = User::create([
-            'name' => $request->name,
+        $otp = Str::random(6);
+
+        // Delete existing OTP record if it exists
+        Otp::where('email', $request->email)->delete();
+
+        // Create a new OTP record
+        Otp::create([
             'email' => $request->email,
-            'password' => Hash::make($request->password),
+            'otp' => $otp,
         ]);
 
-        event(new Registered($user));
+        // Store name and password in session
+        session([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $request->password,
+        ]);
 
-        Auth::login($user);
+        Mail::to($request->email)->send(new OtpMail($otp, $request->name));
 
-        return redirect(RouteServiceProvider::HOME);
+        return redirect()->route('otp.verify')->with('email', $request->email);
     }
 }

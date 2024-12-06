@@ -32,7 +32,7 @@ https://paciflix2.darwinrg.tech/
 ## 🙏 Acknowledgements
 
 - [Laravel](https://laravel.com/)
-- [VidBinge](https://www.superembed.stream/)
+- [Embed.su](https://embed.su/) (Video Content)
 
   &nbsp;
 
@@ -52,6 +52,11 @@ https://paciflix2.darwinrg.tech/
 - Web server (Apache, Nginx, etc.)
 - Node.js and npm (for frontend dependencies)
 - Git (for version control)
+
+### API Integration
+
+- [The Movie Database](https://www.themoviedb.org/)
+- [Mailgun](https://www.mailgun.com/) (for sending emails)
 
 &nbsp;
 
@@ -166,7 +171,7 @@ You can now visit http://127.0.0.1:8000 to view the application.
 ### Homepage
 ![Screenshot](public/ss_home.jpeg)
 
-### Homepage
+### TVSHOW
 ![Screenshot](public/ss_tvshow.jpeg)
 
 ### Player

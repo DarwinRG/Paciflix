@@ -46,7 +46,7 @@ class TvViewModel extends ViewModel
                 'poster_path' => 'https://image.tmdb.org/t/p/w500/' . $tvshow['poster_path'],
                 'backdrop_path' => 'https://image.tmdb.org/t/p/w1280/' . $tvshow['backdrop_path'],
                 'vote_average' => $tvshow['vote_average'] * 10 . '%',
-                'first_air_date' => Carbon::parse($tvshow['first_air_date'])->format('Y'),
+                'first_air_date' => Carbon::parse($tvshow['first_air_date'])->format('M Y'),
                 'genres' => $genresFormatted,
             ])->only([
                         'poster_path',

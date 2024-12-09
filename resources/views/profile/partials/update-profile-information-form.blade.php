@@ -21,6 +21,7 @@
             <label for="name" class="form-label">{{ __('Name') }}</label>
             <input id="name" name="name" type="text" class="form-control w-75" value="{{ old('name', $user->name) }}"
                 required autofocus autocomplete="name">
+            <p class="text-warning text-opacity-75 fst-italic mt-1">{{ __('Tip: The name must consist of only letters.') }}</p>
             @if ($errors->has('name'))
                 <div class="text-danger mt-1">
                     @foreach ($errors->get('name') as $message)
@@ -29,6 +30,7 @@
                 </div>
             @endif
         </div>
+
 
         <div class="mb-3">
             <label for="email" class="form-label">{{ __('Email') }}</label>
@@ -41,6 +43,7 @@
                     @endforeach
                 </div>
             @endif
+
 
             @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && !$user->hasVerifiedEmail())
                 <div class="mt-2">

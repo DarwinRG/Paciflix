@@ -27,14 +27,12 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255',
-            // Add other fields as needed
-        ]);
-
         $user = auth()->user();
-        $user->update($request->all());
+        $user->update($request->validated());
+
+        // Ensure the old email is not used for login
+        $user->email_verified_at = null;
+        $user->save();
 
         return redirect()->route('profile.edit')->with('status', 'profile-updated');
     }

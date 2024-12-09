@@ -46,7 +46,7 @@ class MoviesViewModel extends ViewModel
                 'poster_path' => 'https://image.tmdb.org/t/p/w500/' . $movie['poster_path'],
                 'backdrop_path' => 'https://image.tmdb.org/t/p/w1280/' . $movie['backdrop_path'],
                 'vote_average' => $movie['vote_average'] * 10 . '%',
-                'release_date' => Carbon::parse($movie['release_date'])->format('Y'),
+                'release_date' => Carbon::parse($movie['release_date'])->format('M Y'),
                 'genres' => $genresFormatted,
             ])->only([
                         'poster_path',

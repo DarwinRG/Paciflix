@@ -1,8 +1,9 @@
 <div class="mt-8 rounded-lg p-4 bg-gray-800 shadow">
     <a href="{{ route('movies.show', $movie['id']) }}">
         <img src="{{ $movie['poster_path'] }}" alt="poster"
-            class="hover:opacity-75 transition ease-in-out duration-150 rounded">
-    </a>
+            class="hover:opacity-75 transition ease-in-out duration-150 rounded"
+            style="aspect-ratio: 2 / 3;">
+        </a>
     <div class="mt-2">
         <a href="{{ route('movies.show', $movie['id']) }}"
             class="text-lg mt-2 hover:text-gray-300 block text-truncate">{{ $movie['title'] }}</a>

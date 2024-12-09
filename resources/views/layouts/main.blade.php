@@ -40,13 +40,26 @@
             <div class="collapse navbar-collapse fw-bold" id="navbarOne">
                 <ul class="nav nav-pills ms-auto mb-2 mt-2 mb-lg-0 me-4 align-items-center">
                     <li class="nav-item col-12 col-md-auto">
-                        <a href="{{ route('movies.index') }}" class="nav-link {{ request()->routeIs('movies.index') ? 'active' : '' }}">Movies</a>
+                        <a href="{{ route('movies.index') }}"
+                            class="nav-link {{ request()->routeIs('movies.index') ? 'active' : '' }}">Movies</a>
                     </li>
                     <li class="nav-item col-12 col-md-auto">
-                        <a href="{{ route('tv.index') }}" class="nav-link {{ request()->routeIs('tv.index') ? 'active' : '' }}">TV Shows</a>
+                        <a href="{{ route('tv.index') }}"
+                            class="nav-link {{ request()->routeIs('tv.index') ? 'active' : '' }}">TV Shows</a>
                     </li>
-                    <li class="nav-item mb-3 px-2 col-12 col-md-auto">
-                        <livewire:search-dropdown />
+                    <li class="nav-item col-12 col-md-auto align-items-center px-1 py-1">
+                        <form class="d-flex" action="{{ route('search') }}" method="GET">
+                            <div class="input-group">
+                                <input class="form-control w-50" type="search" name="query" placeholder="Search "
+                                    aria-label="Search">
+                                <select class="form-select w-25" name="type">
+                                    <option value="movie">Movie</option>
+                                    <option value="tv">TV</option>
+                                </select>
+                                <button class="btn btn-success" type="submit"><i class="bi bi-search"></i>
+                                    Search</button>
+                            </div>
+                        </form>
                     </li>
                     <li class="nav-item dropdown col-12 col-md-auto">
                         <a class="nav-link" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown"
@@ -55,10 +68,15 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-lg-end bg-gray-800" aria-labelledby="userDropdown">
                             <li class="dropdown-item-text text-info">Hello there! 👋</li>
-                            <li class="dropdown-item-text disabled text-white fw-light">{{ Str::limit(Auth::user()->name, 15) }}</li>
-                            <li><hr class="dropdown-divider"></li>
+                            <li class="dropdown-item-text disabled text-white fw-light">
+                                {{ Str::limit(Auth::user()->name, 15) }}
+                            </li>
                             <li>
-                                <a href="{{ route('profile.edit') }}" class="dropdown-item text-primary fw-bold">Profile Settings</a>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a href="{{ route('profile.edit') }}" class="dropdown-item text-primary fw-bold">Profile
+                                    Settings</a>
                             </li>
                             <li>
                                 <form method="POST" action="{{ route('logout') }}">

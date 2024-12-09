@@ -61,31 +61,6 @@
                             </div>
                         </form>
                     </li>
-                    <li class="nav-item dropdown col-12 col-md-auto">
-                        <a class="nav-link" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            <i class="bi bi-person-circle text-primary" style="font-size: 1.5rem"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-lg-end bg-gray-800" aria-labelledby="userDropdown">
-                            <li class="dropdown-item-text text-info">Hello there! 👋</li>
-                            <li class="dropdown-item-text disabled text-white fw-light">
-                                {{ Str::limit(Auth::user()->name, 15) }}
-                            </li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li>
-                                <a href="{{ route('profile.edit') }}" class="dropdown-item text-primary fw-bold">Profile
-                                    Settings</a>
-                            </li>
-                            <li>
-                                <form method="POST" action="{{ route('logout') }}">
-                                    @csrf
-                                    <button type="submit" class="dropdown-item fw-bold text-danger">Logout</button>
-                                </form>
-                            </li>
-                        </ul>
-                    </li>
                 </ul>
             </div>
         </div>

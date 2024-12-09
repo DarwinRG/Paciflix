@@ -32,19 +32,27 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255', 'regex:/^[a-zA-Z\s]+$/'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
         $otp = Str::random(6);
 
-        // Store OTP in session
-        session([
+        // Delete existing OTP record if it exists
+        Otp::where('email', $request->email)->delete();
+
+        // Create a new OTP record
+        Otp::create([
+            'email' => $request->email,
             'otp' => $otp,
+        ]);
+
+        // Store name and password in session
+        session([
             'name' => $request->name,
             'email' => $request->email,
             'password' => $request->password,

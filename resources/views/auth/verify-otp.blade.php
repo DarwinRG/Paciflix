@@ -1,15 +1,17 @@
+<!-- resources/views/auth/verify-otp.blade.php -->
+
 <x-guest-layout>
     <form method="POST" action="{{ route('otp.verify') }}">
         @csrf
 
         <!-- Hidden Email Field -->
-        <input type="hidden" name="email" value="{{ session('email') }}">
+        <input type="hidden" name="email" value="{{ $email ?? session('email') }}">
 
         <!-- Email Information -->
         <div class="mb-4">
             <p class="text-yellow-500">
                 {{ __('An OTP has been sent to your email address:') }} <strong
-                    class="italic text-gray-400">{{ session('email') }}</strong>
+                    class="italic text-gray-400">{{ $email ?? session('email') }}</strong>
             </p>
         </div>
 

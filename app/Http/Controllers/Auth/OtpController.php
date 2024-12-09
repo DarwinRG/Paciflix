@@ -12,9 +12,9 @@ use Illuminate\Support\Facades\Auth;
 
 class OtpController extends Controller
 {
-    public function showVerifyForm()
+    public function showVerifyForm(Request $request)
     {
-        return view('auth.verify-otp');
+        return view('auth.verify-otp', ['email' => session('email')]);
     }
 
     public function verify(Request $request)
@@ -24,19 +24,23 @@ class OtpController extends Controller
             'otp' => 'required|string',
         ]);
 
-        $otp = Otp::where('email', $request->email)->where('otp', $request->otp)->first();
-
-        if ($otp) {
+        // Check the session-stored OTP
+        if ($request->otp === session('otp') && $request->email === session('email')) {
             // OTP is valid, create the user
             $user = User::create([
                 'name' => session('name'),
                 'email' => $request->email,
                 'password' => Hash::make(session('password')),
             ]);
+
+            // Clear the session-stored OTP
+            $request->session()->forget(['otp', 'name', 'email', 'password']);
+
             Auth::login($user);
+
             return redirect()->route('home')->with('status', 'Registration successful. Welcome!');
         }
 
-        return back()->withErrors(['otp' => 'Invalid OTP']);
+        return back()->withErrors(['otp' => 'Invalid OTP'])->withInput();
     }
 }

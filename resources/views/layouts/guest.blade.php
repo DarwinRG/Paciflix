@@ -44,7 +44,7 @@
 
 <body class="font-sans text-gray-900 antialiased">
     <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 background-tint"
-        style="background-image: url('{{ asset('poster-background.jpg') }}'); background-size: cover; background-position: center;">
+        style="background-image: url('/poster-background.jpg'); background-size: cover; background-position: center;">
         <div>
             <a href="/">
                 <img src="{{ asset('logo.png') }}" alt="Paciflix" class="w-40 mx-auto" />

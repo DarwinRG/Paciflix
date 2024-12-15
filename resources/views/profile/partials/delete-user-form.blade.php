@@ -5,7 +5,7 @@
         </h2>
 
         <p class="mt-1">
-            {{ __('Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.') }}
+            {{ __('Once your account is deleted, all of its resources and data will be permanently deleted.') }}
         </p>
     </header>
 
@@ -55,42 +55,3 @@
     </div>
 </section>
 
-<script>
-    document.getElementById('delete-account-form').addEventListener('submit', function (event) {
-        event.preventDefault();
-
-        const form = event.target;
-        const formData = new FormData(form);
-        const errorMessageDiv = document.getElementById('error-message');
-
-        fetch(form.action, {
-            method: form.method,
-            headers: {
-                'X-CSRF-TOKEN': formData.get('_token'),
-                'Accept': 'application/json',
-            },
-            body: formData,
-        })
-            .then(response => {
-                if (!response.ok) {
-                    return response.json().then(data => {
-                        throw new Error(data.message || 'Something went wrong');
-                    });
-                }
-                return response.json();
-            })
-            .then(data => {
-                if (data.errors) {
-                    const errors = Object.values(data.errors).flat();
-                    errorMessageDiv.innerHTML = errors.join('<br>');
-                } else if (data.message) {
-                    errorMessageDiv.innerHTML = data.message;
-                } else {
-                    window.location.href = data.redirect;
-                }
-            })
-            .catch(error => {
-                errorMessageDiv.innerHTML = error.message;
-            });
-    });
-</script>

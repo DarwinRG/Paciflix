@@ -5,7 +5,7 @@
         </h2>
 
         <p>
-            {{ __("Update your account's profile information and email address.") }}
+            {{ __("Update your account's profile information.") }}
         </p>
     </header>
 
@@ -31,7 +31,7 @@
             @endif
         </div>
 
-
+        <!--
         <div class="mb-3">
             <label for="email" class="form-label">{{ __('Email') }}</label>
             <input id="email" name="email" type="email" class="form-control w-75"
@@ -63,6 +63,7 @@
                 </div>
             @endif
         </div>
+        -->
 
         <div class="d-flex align-items-center gap-3">
             <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>

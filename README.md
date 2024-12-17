@@ -4,59 +4,65 @@
 
 # 🌊 Paciflix 🍿
 
-Paciflix is a streaming site that offers a wide variety of movies and TV shows. Enjoy seamless streaming with our user-friendly interface and high-quality content.
+Paciflix is a streaming web application that offers a wide variety of movies and TV shows. Enjoy seamless streaming with our user-friendly interface and high-quality content.
 
 ## ✨ Features
 
-- User-friendly interface
-- High-quality streaming
-- Wide variety of movies and TV shows
-- Multiple device support
-- Regular content updates
-- Multi-language subtitles
-- Secure and private
+-   User-friendly interface
+-   High-quality streaming
+-   Wide variety of movies and TV shows
+-   Multiple device support
+-   Regular content updates
+-   Multi-language subtitles
+-   Secure and private
 
 &nbsp;
 
+## 🌐 Website Link
 
-## 🌐Website Link
+### 🌠 Main
 
-### Main
 https://paciflix.darwinrg.tech/
 
+### 🟢 Backup
 
-### Backup
 https://paciflix2.darwinrg.tech/
 
+### 📢 Public-Released Version
+`This version doesn't have a login/signup system`
+
+https://paciflix.darwinrg.me/
 
 ## 🙏 Acknowledgements
 
-- [Laravel](https://laravel.com/)
-- [Embed.su](https://embed.su/) (Video Content)
+-   [⭐Embed.su](https://embed.su/) (Video Content)
+-   [⭐VidBinge.com](https://www.vidbinge.com/) (Video Content)
+-   [⭐Vidlink.pro](https://vidlink.pro/) (Video Content)
 
-  &nbsp;
+&nbsp;
 
 ## 🧑 Author
 
-- [@DarwinRG](https://github.com/DarwinRG)
+-   [@DarwinRG](https://github.com/DarwinRG)
 
 &nbsp;
 
 ## 📒 Requirements
 
-### Major Requirements
+### ❗ Major Requirements
 
-- PHP 8 or higher
-- Composer
-- MySQL or any other supported database
-- Web server (Apache, Nginx, etc.)
-- Node.js and npm (for frontend dependencies)
-- Git (for version control)
+-   PHP 8 or higher
+-   Composer
+-   Mailgun
+-   MySQL or any other supported database
+-   Web server (Apache, Nginx, etc.)
+-   Node.js and npm (for frontend dependencies)
+-   Git (for version control)
 
-### API Integration
+### 🔗 API Integration
 
-- [The Movie Database](https://www.themoviedb.org/)
-- [Mailgun](https://www.mailgun.com/) (for sending emails)
+-   [The Movie Database](https://www.themoviedb.org/)
+-   [Mailgun](https://www.mailgun.com/) (for sending emails)
 
 &nbsp;
 
@@ -87,6 +93,12 @@ git clone https://github.com/DarwinRG/Paciflix.git
 cd Paciflix
 ```
 
+4. Then use this command to open the project in a new window
+
+```sh
+code .
+```
+
 ### ⚙️ Initial Setup
 
 1. Open a terminal and navigate to the project directory. Then run the following command to install the composer packages:
@@ -94,12 +106,12 @@ cd Paciflix
 ```sh
 composer install
 ```
+
 2. Create the Environment Variables
 
 ```sh
 cp .env.example .env
 ```
-
 
 3. Generate Application key
 
@@ -119,23 +131,39 @@ npm install
 
 To run this project, you will need to configure the following variables to the **.env**
 
-### TMDB API TOKEN
-```sh
-TMDB_TOKEN=
-```
+### 1️⃣ TMDB API TOKEN
+
+`TMDB_TOKEN`
+
 You need to get your TMDB Token at https://www.themoviedb.org/
 
+### 2️⃣ DATABASE CONFIGS
 
-### DATABASE CONFIGS
-```sh
-DB_CONNECTION=
-DB_HOST=
-DB_PORT=
-DB_DATABASE=
-DB_USERNAME=
-DB_PASSWORD=
-```
+`DB_CONNECTION`
 
+`DB_HOST`
+
+`DB_PORT`
+
+`DB_DATABASE`
+
+`DB_USERNAME`
+
+`DB_PASSWORD`
+
+#### 3️⃣ MAILGUN CONFIGS
+
+`MAIL_MAILER`
+
+`MAILGUN_DOMAIN`
+
+`MAILGUN_SECRET`
+
+`MAILGUN_ENDPOINT=api.mailgun.net`
+
+`MAIL_FROM_ADDRESS`
+
+`MAIL_FROM_NAME=PACIFLIX`
 
 &nbsp;
 
@@ -146,11 +174,13 @@ After setting up the environment and installing the dependencies, you can run th
 ```sh
 php artisan serve
 ```
-Then create a new terminal and create a new node development server
+
+Then create a another terminal using this shortcut **Ctrl + Shift + `** and create a new node development server using this command
 
 ```sh
 npm run dev
 ```
+
 &nbsp;
 
 ## 📊 Output
@@ -163,18 +193,31 @@ Starting Laravel development server: http://127.0.0.1:8000
 
 You can now visit http://127.0.0.1:8000 to view the application.
 
+## 📂 Public-Released Version
+If you encounter issues running this version, you can try the public-released version.
+
+It has fewer requirements as some features have been removed, but it still retains the core functionality of the web app.
+
+**Github Repository Link:**
+**https://github.com/DarwinRG/Paciflix-public**
+
+
 ## 📈 Screenshots
 
 ### Login Page
+
 ![Screenshot](public/ss_login.jpeg)
 
 ### Homepage
+
 ![Screenshot](public/ss_home.jpeg)
 
 ### TVSHOW
+
 ![Screenshot](public/ss_tvshow.jpeg)
 
 ### Player
+
 ![Screenshot](public/ss_player.jpeg)
 
 &nbsp;

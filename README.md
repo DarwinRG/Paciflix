@@ -10,13 +10,19 @@ Paciflix is a streaming web application that offers a wide variety of movies and
 
 ## ✨ Features
 
-**User-friendly interface
-High-quality streaming
-Wide variety of movies and TV shows
-Multiple device support
-Regular content updates
-Multi-language subtitles
-Secure and private**
+**User-friendly interface**
+
+**High-quality streaming**
+
+**Wide variety of movies and TV shows**
+
+**Multiple device support**
+
+**Regular content updates**
+
+**Multi-language subtitles**
+
+**Secure and private**
 
 &nbsp;
 

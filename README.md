@@ -1,3 +1,5 @@
+<div align="center">
+
 ![Logo](public/logo.png)
 
 &nbsp;
@@ -8,13 +10,13 @@ Paciflix is a streaming web application that offers a wide variety of movies and
 
 ## ✨ Features
 
--   User-friendly interface
--   High-quality streaming
--   Wide variety of movies and TV shows
--   Multiple device support
--   Regular content updates
--   Multi-language subtitles
--   Secure and private
+**User-friendly interface
+High-quality streaming
+Wide variety of movies and TV shows
+Multiple device support
+Regular content updates
+Multi-language subtitles
+Secure and private**
 
 &nbsp;
 
@@ -29,17 +31,19 @@ https://paciflix.darwinrg.tech/
 https://paciflix2.darwinrg.tech/
 
 ### 📢 Public-Released Version
+
 `This version doesn't have a login/signup system`
 
 https://paciflix.darwinrg.me/
+
+</div>
+&nbsp;
 
 ## 🙏 Acknowledgements
 
 -   [⭐Embed.su](https://embed.su/) (Video Content)
 -   [⭐VidBinge.com](https://www.vidbinge.com/) (Video Content)
 -   [⭐Vidlink.pro](https://vidlink.pro/) (Video Content)
-
-&nbsp;
 
 ## 🧑 Author
 
@@ -194,13 +198,13 @@ Starting Laravel development server: http://127.0.0.1:8000
 You can now visit http://127.0.0.1:8000 to view the application.
 
 ## 📂 Public-Released Version
+
 If you encounter issues running this version, you can try the public-released version.
 
 It has fewer requirements as some features have been removed, but it still retains the core functionality of the web app.
 
 **Github Repository Link:**
 **https://github.com/DarwinRG/Paciflix-public**
-
 
 ## 📈 Screenshots
 
